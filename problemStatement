@@ -1,0 +1,13 @@
+The problem
+Many of our learners finish A1 German and book their Goethe or ÖSD exam without
+knowing if they are ready. Some fail and lose both their exam fee and precious time on
+their journey abroad. Website link - https://www.globio.ai/
+This is a real problem we care about, and we want to see how you would solve it.
+
+Part 1: Build
+Build a small web app where a learner takes a short check of 10–15 questions across
+vocabulary, grammar and reading. After the check, the app should tell the learner:
+How ready they are, broken down by skill.
+The 2–3 things they should practise before booking the exam.
+You decide how "ready" is calculated. Host the app on a public link and share the code on
+GitHub. Any tech stack or tools are fine.

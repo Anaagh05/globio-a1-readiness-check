@@ -39,14 +39,14 @@ flowchart LR
 
 | # | Task | File(s) | Done |
 |---|------|---------|------|
-| 1.1 | Initialize Next.js 15 project with TypeScript + App Router | `package.json`, `tsconfig.json`, `next.config.ts` | [ ] |
-| 1.2 | Install and configure Tailwind CSS | `tailwind.config.ts`, `globals.css` | [ ] |
-| 1.3 | Initialize shadcn/ui and install base components: `Button`, `Card`, `Badge`, `Progress`, `RadioGroup`, `Separator` | `components/ui/*` | [ ] |
-| 1.4 | Set up project folder structure per architecture doc | `src/app/`, `src/components/`, `src/data/`, `src/lib/`, `src/hooks/` | [ ] |
-| 1.5 | Create root layout with metadata, fonts (Inter or Geist), and global styles | `src/app/layout.tsx` | [ ] |
-| 1.6 | Add placeholder pages for all three routes | `src/app/page.tsx`, `src/app/quiz/page.tsx`, `src/app/results/page.tsx` | [ ] |
-| 1.7 | Initialize Git repo, create `.gitignore`, push to GitHub | `.gitignore`, `README.md` | [ ] |
-| 1.8 | Connect repo to Vercel, verify first deploy works | Vercel dashboard | [ ] |
+| 1.1 | Initialize Next.js project with TypeScript + App Router | `package.json`, `tsconfig.json`, `next.config.ts` | [x] |
+| 1.2 | Install and configure Tailwind CSS | `globals.css` | [x] |
+| 1.3 | Initialize shadcn/ui and install base components: `Button`, `Card`, `Badge`, `Progress`, `RadioGroup`, `Separator` | `src/components/ui/*` | [x] |
+| 1.4 | Set up project folder structure per architecture doc | `src/app/`, `src/components/`, `src/data/`, `src/lib/`, `src/hooks/` | [x] |
+| 1.5 | Create root layout with metadata, fonts, and global styles | `src/app/layout.tsx` | [x] |
+| 1.6 | Add placeholder pages for all three routes and API handler | `src/app/page.tsx`, `src/app/quiz/page.tsx`, `src/app/results/page.tsx`, `src/app/api/evaluate/route.ts` | [x] |
+| 1.7 | Initialize Git repo, create `.gitignore`, make clean initial commit | `.gitignore`, `README.md` | [x] |
+| 1.8 | Connect repo to GitHub & Vercel | Vercel / GitHub | [ ] |
 
 ### Exit Criteria
 

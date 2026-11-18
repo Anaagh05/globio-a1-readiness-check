@@ -1,69 +1,95 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex flex-col min-h-screen">
+      {/* Navigation Header */}
+      <header className="border-b bg-card">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between max-w-5xl">
+          <div className="flex items-center gap-2">
+            <span className="font-extrabold text-2xl tracking-tight text-primary">
+              globio<span className="text-emerald-500">.ai</span>
+            </span>
+            <Badge variant="outline" className="text-xs">
+              A1 Readiness Check
+            </Badge>
+          </div>
+          <Link href="/quiz">
+            <Button size="sm">Start Check</Button>
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+      </header>
+
+      {/* Hero Section */}
+      <main className="flex-1 container mx-auto px-4 py-12 max-w-4xl flex flex-col items-center justify-center text-center">
+        <Badge variant="secondary" className="mb-4 px-3 py-1 text-sm font-medium">
+          🇩🇪 Goethe-Zertifikat & ÖSD A1 Diagnostic
+        </Badge>
+        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground max-w-2xl">
+          Know If You&apos;re Ready Before You Book Your Exam
+        </h1>
+        <p className="mt-4 text-lg text-muted-foreground max-w-xl">
+          Don&apos;t risk your exam fee or migration timeline. Take a quick 10–15 question check across Vocabulary, Grammar, and Reading to get your skill-by-skill readiness breakdown.
+        </p>
+
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 items-center">
+          <Link href="/quiz">
+            <Button size="lg" className="w-full sm:w-auto text-base px-8 h-12">
+              Start Readiness Check →
+            </Button>
+          </Link>
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.globio.ai"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+            <Button variant="outline" size="lg" className="w-full sm:w-auto h-12">
+              Learn about Globio
+            </Button>
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        </div>
+
+        {/* 3 Pillars Overview */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 w-full text-left">
+          <Card>
+            <CardHeader>
+              <Badge className="w-fit mb-2" variant="secondary">Skill 1</Badge>
+              <CardTitle className="text-lg">Vocabulary</CardTitle>
+              <CardDescription>
+                Core A1 words, everyday topics, family, food, and daily life contexts.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <Badge className="w-fit mb-2" variant="secondary">Skill 2</Badge>
+              <CardTitle className="text-lg">Grammar</CardTitle>
+              <CardDescription>
+                Sentence order (V2), Nominativ/Akkusativ cases, and essential verb forms.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <Badge className="w-fit mb-2" variant="secondary">Skill 3</Badge>
+              <CardTitle className="text-lg">Reading Comprehension</CardTitle>
+              <CardDescription>
+                Authentic short notices, emails, and announcements in exam format.
+              </CardDescription>
+            </CardHeader>
+          </Card>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="border-t py-6 text-center text-sm text-muted-foreground">
+        <p>Built for Globio A1 German Learners · Free & Open Diagnostic</p>
+      </footer>
     </div>
   );
 }
