@@ -66,3 +66,4 @@ export function SkillBadge({ skill, difficulty }: SkillBadgeProps) {
     </div>
   );
 }
+
