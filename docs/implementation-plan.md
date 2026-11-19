@@ -159,20 +159,20 @@ stateDiagram-v2
 | # | Task | File(s) | Done |
 |---|------|---------|------|
 | **API** | | | |
-| 4.1 | Implement `calculateSkillScores()` — weighted scoring per skill | `src/lib/scoring.ts` | [ ] |
-| 4.2 | Implement `calculateOverallScore()` — average of skill scores, map to verdict | `src/lib/scoring.ts` | [ ] |
-| 4.3 | Implement `generateRecommendations()` — rank weak skills, return top 2–3 recommendations | `src/lib/recommendations.ts` | [ ] |
-| 4.4 | Build `POST /api/evaluate` route — validate request, run scoring + recommendations, return `EvaluateResponse` | `src/app/api/evaluate/route.ts` | [ ] |
-| 4.5 | Add input validation — reject malformed requests, wrong question counts, out-of-range indices | `src/app/api/evaluate/route.ts` | [ ] |
+| 4.1 | Implement `calculateSkillScores()` — weighted scoring per skill | `src/lib/scoring.ts` | [x] |
+| 4.2 | Implement `calculateOverallScore()` — average of skill scores, map to verdict | `src/lib/scoring.ts` | [x] |
+| 4.3 | Implement `generateRecommendations()` — rank weak skills, return top 2–3 recommendations | `src/lib/recommendations.ts` | [x] |
+| 4.4 | Build `POST /api/evaluate` route — validate request, run scoring + recommendations, return `EvaluateResponse` | `src/app/api/evaluate/route.ts` | [x] |
+| 4.5 | Add input validation — reject malformed requests, wrong question counts, out-of-range indices | `src/app/api/evaluate/route.ts` | [x] |
 | **Results UI** | | | |
-| 4.6 | Build `OverallVerdict` — large display: ✅ Ready / ⚠️ Almost There / 🔴 Keep Practising | `src/components/results/OverallVerdict.tsx` | [ ] |
-| 4.7 | Build `SkillRadialChart` — three radial/circular progress charts, color-coded by verdict | `src/components/results/SkillRadialChart.tsx` | [ ] |
-| 4.8 | Build `ScoreBreakdown` — tabular view: skill, score %, correct/total, verdict badge | `src/components/results/ScoreBreakdown.tsx` | [ ] |
-| 4.9 | Build `RecommendationList` — ordered cards with priority number, title, description | `src/components/results/RecommendationList.tsx` | [ ] |
-| 4.10 | Assemble **Results Page** — calls API on mount, displays loading state, then all result components | `src/app/results/page.tsx` | [ ] |
-| 4.11 | Add "Retake" button — resets quiz state and navigates back to `/quiz` | `src/app/results/page.tsx` | [ ] |
+| 4.6 | Build `OverallVerdict` — large display: ✅ Ready / ⚠️ Almost There / 🔴 Keep Practising | `src/components/results/OverallVerdict.tsx` | [x] |
+| 4.7 | Build `SkillRadialChart` — three radial/circular progress charts, color-coded by verdict | `src/components/results/SkillRadialChart.tsx` | [x] |
+| 4.8 | Build `ScoreBreakdown` — tabular view: skill, score %, correct/total, verdict badge | `src/components/results/ScoreBreakdown.tsx` | [x] |
+| 4.9 | Build `RecommendationList` — ordered cards with priority number, title, description | `src/components/results/RecommendationList.tsx` | [x] |
+| 4.10 | Assemble **Results Page** — calls API on mount, displays loading state, then all result components | `src/app/results/page.tsx` | [x] |
+| 4.11 | Add "Retake" button — resets quiz state and navigates back to `/quiz` | `src/app/results/page.tsx` | [x] |
 | **Integration** | | | |
-| 4.12 | Wire Quiz submit → API call → Results page (pass data via URL state, sessionStorage, or React context) | `src/app/quiz/page.tsx`, `src/app/results/page.tsx` | [ ] |
+| 4.12 | Wire Quiz submit → API call → Results page (pass data via URL state, sessionStorage, or React context) | `src/app/quiz/page.tsx`, `src/app/results/page.tsx` | [x] |
 
 ### Data Flow on Submit
 
@@ -194,11 +194,11 @@ sequenceDiagram
 
 ### Exit Criteria
 
-- [ ] `POST /api/evaluate` returns correct scores for a known set of answers (manual test)
-- [ ] Scores are mathematically correct (weighted formula matches architecture doc)
-- [ ] Results page shows overall verdict, 3 skill charts, score breakdown table, and 2–3 recommendations
-- [ ] "Retake" button works — returns to a fresh quiz
-- [ ] Loading / error states are handled gracefully
+- [x] `POST /api/evaluate` returns correct scores for a known set of answers (manual test)
+- [x] Scores are mathematically correct (weighted formula matches architecture doc)
+- [x] Results page shows overall verdict, 3 skill charts, score breakdown table, and 2–3 recommendations
+- [x] "Retake" button works — returns to a fresh quiz
+- [x] Loading / error states are handled gracefully
 
 ---
 
