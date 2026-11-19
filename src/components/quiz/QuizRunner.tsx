@@ -117,7 +117,7 @@ export function QuizRunner() {
   if (!currentQuestion) {
     return (
       <div className="flex flex-col items-center justify-center p-12 text-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-3 border-emerald-600 border-t-transparent mb-3" />
+        <div className="animate-spin rounded-full h-8 w-8 border-3 border-[#0b1f7a] border-t-transparent mb-3" />
         <p className="text-slate-500 font-medium text-sm">Preparing readiness check...</p>
       </div>
     );
@@ -160,7 +160,7 @@ export function QuizRunner() {
             <Button
               onClick={next}
               disabled={!hasAnsweredCurrent || isSubmitting}
-              className="px-6 h-11 rounded-xl min-w-[110px] font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 disabled:opacity-50"
+              className="px-6 h-11 rounded-xl min-w-[110px] font-bold bg-[#0b1f7a] hover:bg-[#0e2a9c] text-white shadow-sm shadow-blue-900/20 disabled:opacity-50"
             >
               Next Question →
             </Button>
@@ -168,7 +168,7 @@ export function QuizRunner() {
             <Button
               onClick={handleSubmit}
               disabled={!allAnswered || isSubmitting}
-              className="px-7 h-11 rounded-xl min-w-[140px] font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-600/20"
+              className="px-7 h-11 rounded-xl min-w-[140px] font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-md shadow-amber-500/25"
             >
               {isSubmitting ? "Calculating..." : "Submit Check ✓"}
             </Button>

@@ -86,19 +86,19 @@ export default function ResultsPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+    <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       {/* Header */}
-      <header className="border-b border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+      <header className="border-b border-white/10 bg-[#0b1f7a] text-white sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between max-w-4xl">
           <Link href="/" className="flex items-center gap-2.5">
-            <span className="font-black text-2xl tracking-tight text-slate-900 dark:text-white">
-              globio<span className="text-emerald-500 font-extrabold">.ai</span>
+            <span className="font-extrabold text-2xl tracking-tight text-white">
+              Globio
             </span>
             <Badge
               variant="outline"
-              className="hidden sm:inline-flex text-[11px] font-semibold text-emerald-700 bg-emerald-50/70 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800"
+              className="hidden sm:inline-flex text-[11px] font-semibold text-amber-300 border-amber-400/40 bg-amber-400/10 rounded-full"
             >
-              Diagnostic Results
+              Diagnostic Summary
             </Badge>
           </Link>
           <div className="flex items-center gap-3">
@@ -106,12 +106,12 @@ export default function ResultsPage() {
               variant="outline"
               size="sm"
               onClick={handleRetake}
-              className="rounded-lg border-slate-200 dark:border-slate-800 text-xs font-semibold"
+              className="rounded-full border-white/30 text-white bg-white/5 hover:bg-white/15 text-xs font-semibold"
             >
               Retake Check
             </Button>
             <Link href="/">
-              <Button size="sm" variant="ghost" className="text-xs font-semibold">
+              <Button size="sm" variant="ghost" className="text-xs font-semibold text-blue-100 hover:text-white hover:bg-white/10 rounded-full">
                 Home
               </Button>
             </Link>
@@ -124,7 +124,7 @@ export default function ResultsPage() {
         {/* Loading State */}
         {pageState.status === "loading" && (
           <div className="flex flex-col items-center justify-center py-24 gap-4">
-            <div className="animate-spin rounded-full h-10 w-10 border-3 border-emerald-600 border-t-transparent" />
+            <div className="animate-spin rounded-full h-10 w-10 border-3 border-[#0b1f7a] border-t-transparent" />
             <p className="text-slate-600 dark:text-slate-400 text-sm font-semibold">
               Evaluating your answers against Goethe A1 criteria...
             </p>
@@ -139,8 +139,8 @@ export default function ResultsPage() {
             <p className="text-slate-600 dark:text-slate-400 max-w-md text-sm">{pageState.message}</p>
             <div className="flex gap-3 mt-4">
               <Link href="/quiz">
-                <Button className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl px-6">
-                  Take the Free Check →
+                <Button className="bg-[#0b1f7a] hover:bg-[#0e2a9c] text-white font-bold rounded-xl px-6">
+                  Take Free Check Now →
                 </Button>
               </Link>
               <Link href="/">
@@ -171,29 +171,39 @@ export default function ResultsPage() {
             <RecommendationList recommendations={pageState.data.recommendations} />
 
             {/* Section 5: Globio Platform Upskill Banner */}
-            <section className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-600/20 text-center space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-emerald-100">
-                Turn Weak Areas Into Passing Scores
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white">
-                Prepare for Goethe & telc with Globio AI
-              </h3>
-              <p className="text-xs sm:text-sm text-emerald-50 max-w-xl mx-auto leading-relaxed">
-                Get 24/7 speaking practice, instant writing evaluation, and end-to-end guidance to move to Germany with jobs, Ausbildung, and visa support.
-              </p>
-              <div className="pt-2">
-                <a
-                  href="https://www.globio.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    size="lg"
-                    className="bg-white text-emerald-800 hover:bg-emerald-50 font-bold px-8 rounded-xl shadow-xs"
+            <section className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#081754] via-[#0b1f7a] to-[#0e2a9c] text-white shadow-xl text-center space-y-3 relative overflow-hidden">
+              <div
+                className="pointer-events-none absolute inset-0 opacity-15"
+                style={{
+                  backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)",
+                  backgroundSize: "20px 20px",
+                }}
+                aria-hidden="true"
+              />
+              <div className="relative z-10 space-y-3">
+                <span className="text-xs font-bold uppercase tracking-widest text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full">
+                  Turn Weak Areas Into Passing Scores
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white">
+                  Prepare for Goethe & telc with Globio
+                </h3>
+                <p className="text-xs sm:text-sm text-blue-100 max-w-xl mx-auto leading-relaxed">
+                  Join Globio&apos;s Fastrack German courses: 24/7 AI-guided speaking practice, writing corrections, mock exams, and complete immigration & job placement support to Germany.
+                </p>
+                <div className="pt-2">
+                  <a
+                    href="https://www.globio.ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Explore Globio Courses ↗
-                  </Button>
-                </a>
+                    <Button
+                      size="lg"
+                      className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-8 rounded-full shadow-lg shadow-amber-500/25"
+                    >
+                      Explore Globio Courses ↗
+                    </Button>
+                  </a>
+                </div>
               </div>
             </section>
 
@@ -203,7 +213,7 @@ export default function ResultsPage() {
                 onClick={handleRetake}
                 variant="outline"
                 size="lg"
-                className="w-full sm:w-auto rounded-xl border-slate-200 dark:border-slate-800 font-semibold"
+                className="w-full sm:w-auto rounded-full border-slate-200 dark:border-slate-800 font-semibold"
               >
                 🔄 Retake Readiness Check
               </Button>
@@ -211,9 +221,9 @@ export default function ResultsPage() {
                 <Button
                   variant="ghost"
                   size="lg"
-                  className="w-full sm:w-auto rounded-xl font-semibold text-slate-600 dark:text-slate-300"
+                  className="w-full sm:w-auto rounded-full font-semibold text-slate-600 dark:text-slate-300"
                 >
-                  Back to Overview
+                  Back to Home
                 </Button>
               </Link>
             </div>
@@ -222,8 +232,8 @@ export default function ResultsPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-950 py-6 text-center text-xs text-slate-500">
-        <p>Globio A1 German Exam Readiness Checker · Diagnostic Self-Assessment · Not an Official Certification</p>
+      <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 py-6 text-center text-xs text-slate-500">
+        <p>Globio A1 German Exam Readiness Checker · Diagnostic Self-Assessment · Aligned with Goethe/ÖSD Standards</p>
       </footer>
     </div>
   );

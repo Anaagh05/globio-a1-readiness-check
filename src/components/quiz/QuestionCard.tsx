@@ -32,7 +32,7 @@ export function QuestionCard({
         {/* Optional passage (reading questions) */}
         {question.passage && (
           <div className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 text-sm font-medium leading-relaxed whitespace-pre-line text-slate-800 dark:text-slate-200">
-            <div className="text-[11px] uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-bold mb-2 flex items-center gap-1.5">
+            <div className="text-[11px] uppercase tracking-wider text-blue-900 dark:text-blue-300 font-bold mb-2 flex items-center gap-1.5">
               <span>📄</span>
               <span>Lesetext / German Reading Passage</span>
             </div>
@@ -63,7 +63,7 @@ export function QuestionCard({
                 htmlFor={`option-${question.id}-${idx}`}
                 className={`flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl border cursor-pointer transition-all duration-150 min-h-[56px] select-none ${
                   isSelected
-                    ? "border-emerald-500 bg-emerald-50/70 dark:bg-emerald-950/40 ring-2 ring-emerald-500/20 shadow-xs"
+                    ? "border-[#0b1f7a] bg-blue-50/80 dark:bg-blue-950/50 ring-2 ring-[#0b1f7a]/20 shadow-xs"
                     : "border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900/60 hover:bg-slate-50/80 dark:hover:bg-slate-800/50 hover:border-slate-300 dark:hover:border-slate-700"
                 }`}
               >
@@ -71,14 +71,14 @@ export function QuestionCard({
                   <RadioGroupItem
                     value={String(idx)}
                     id={`option-${question.id}-${idx}`}
-                    className="border-slate-300 text-emerald-600 focus-visible:ring-emerald-500"
+                    className="border-slate-300 text-[#0b1f7a] focus-visible:ring-[#0b1f7a]"
                   />
                 </div>
 
                 <span
                   className={`inline-flex items-center justify-center size-7 rounded-lg text-xs font-bold shrink-0 transition-colors ${
                     isSelected
-                      ? "bg-emerald-600 text-white shadow-xs"
+                      ? "bg-[#0b1f7a] text-white shadow-xs"
                       : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
                   }`}
                 >
@@ -88,7 +88,7 @@ export function QuestionCard({
                 <span
                   className={`text-sm sm:text-base flex-1 ${
                     isSelected
-                      ? "font-semibold text-emerald-950 dark:text-emerald-100"
+                      ? "font-semibold text-blue-950 dark:text-blue-100"
                       : "text-slate-700 dark:text-slate-200"
                   }`}
                 >

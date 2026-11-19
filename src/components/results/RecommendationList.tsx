@@ -13,21 +13,21 @@ const skillIcon = {
 
 const priorityBadges = [
   { label: "#1 Priority", class: "bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-950/60 dark:text-rose-300 dark:border-rose-800" },
-  { label: "#2 Priority", class: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800" },
-  { label: "#3 Priority", class: "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/60 dark:text-blue-300 dark:border-blue-800" },
+  { label: "#2 Priority", class: "bg-amber-50 text-amber-800 border-amber-300 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800" },
+  { label: "#3 Priority", class: "bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-950/60 dark:text-blue-300 dark:border-blue-800" },
 ];
 
 export function RecommendationList({ recommendations }: RecommendationListProps) {
   if (recommendations.length === 0) {
     return (
-      <Card className="rounded-2xl border-emerald-200 bg-emerald-50/70 dark:border-emerald-800 dark:bg-emerald-950/30">
+      <Card className="rounded-2xl border-blue-200 bg-blue-50/70 dark:border-blue-800 dark:bg-blue-950/30">
         <CardContent className="pt-8 pb-8 text-center space-y-3">
           <span className="text-5xl">🎉</span>
-          <h3 className="text-xl font-black text-emerald-800 dark:text-emerald-200">
+          <h3 className="text-xl font-black text-[#0b1f7a] dark:text-amber-300">
             No Critical Weak Areas Detected!
           </h3>
           <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto leading-relaxed">
-            Outstanding! You demonstrated solid competency across Vocabulary, Grammar, and Reading. You are ready to book your Goethe or ÖSD A1 exam slot.
+            Outstanding! You demonstrated solid competency across Vocabulary, Grammar, and Reading. You are well-prepared to book your Goethe or ÖSD A1 exam.
           </p>
         </CardContent>
       </Card>

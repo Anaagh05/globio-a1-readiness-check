@@ -21,15 +21,15 @@ export function ProgressBar({
         <span className="text-slate-600 dark:text-slate-400">
           Question <strong className="text-slate-900 dark:text-white font-bold">{currentNumber}</strong> of {totalQuestions}
         </span>
-        <span className="text-xs font-bold font-mono px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800">
+        <span className="text-xs font-bold font-mono px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-900 border border-blue-200 dark:bg-blue-950/60 dark:text-blue-300 dark:border-blue-800">
           {progressPercent}% Complete
         </span>
       </div>
 
-      {/* Main progress bar with smooth transition */}
+      {/* Main progress bar */}
       <div className="w-full bg-slate-200 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all duration-300 ease-out rounded-full shadow-xs"
+          className="h-full bg-gradient-to-r from-[#0b1f7a] via-[#1d4ed8] to-[#2563eb] transition-all duration-300 ease-out rounded-full shadow-xs"
           style={{ width: `${progressPercent}%` }}
           role="progressbar"
           aria-valuenow={progressPercent}
@@ -44,9 +44,9 @@ export function ProgressBar({
         <div
           className={`py-1.5 px-2 rounded-lg border transition-all ${
             currentSkill === "vocabulary"
-              ? "bg-blue-50 border-blue-300 text-blue-700 dark:bg-blue-950/60 dark:border-blue-700 dark:text-blue-300 shadow-xs"
+              ? "bg-blue-50 border-blue-400 text-blue-900 dark:bg-blue-950/70 dark:border-blue-600 dark:text-blue-200 shadow-xs font-bold"
               : currentIndex >= 5
-              ? "bg-slate-100 dark:bg-slate-900 text-slate-500 border-slate-200 dark:border-slate-800 line-through opacity-70"
+              ? "bg-slate-100 dark:bg-slate-900 text-slate-400 border-slate-200 dark:border-slate-800 line-through opacity-70"
               : "bg-white dark:bg-slate-900 text-slate-400 border-slate-200 dark:border-slate-800"
           }`}
         >
@@ -55,9 +55,9 @@ export function ProgressBar({
         <div
           className={`py-1.5 px-2 rounded-lg border transition-all ${
             currentSkill === "grammar"
-              ? "bg-purple-50 border-purple-300 text-purple-700 dark:bg-purple-950/60 dark:border-purple-700 dark:text-purple-300 shadow-xs"
+              ? "bg-purple-50 border-purple-400 text-purple-900 dark:bg-purple-950/70 dark:border-purple-600 dark:text-purple-200 shadow-xs font-bold"
               : currentIndex >= 10
-              ? "bg-slate-100 dark:bg-slate-900 text-slate-500 border-slate-200 dark:border-slate-800 line-through opacity-70"
+              ? "bg-slate-100 dark:bg-slate-900 text-slate-400 border-slate-200 dark:border-slate-800 line-through opacity-70"
               : "bg-white dark:bg-slate-900 text-slate-400 border-slate-200 dark:border-slate-800"
           }`}
         >
@@ -66,7 +66,7 @@ export function ProgressBar({
         <div
           className={`py-1.5 px-2 rounded-lg border transition-all ${
             currentSkill === "reading"
-              ? "bg-emerald-50 border-emerald-300 text-emerald-700 dark:bg-emerald-950/60 dark:border-emerald-700 dark:text-emerald-300 shadow-xs"
+              ? "bg-emerald-50 border-emerald-400 text-emerald-900 dark:bg-emerald-950/70 dark:border-emerald-600 dark:text-emerald-200 shadow-xs font-bold"
               : "bg-white dark:bg-slate-900 text-slate-400 border-slate-200 dark:border-slate-800"
           }`}
         >

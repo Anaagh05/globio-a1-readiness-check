@@ -1,166 +1,240 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Hero } from "@/components/landing/Hero";
-import { FeatureCards } from "@/components/landing/FeatureCards";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-slate-50/50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
-      {/* Top Navbar */}
-      <header className="border-b border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-50 transition-all">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between max-w-5xl">
-          <Link href="/" className="flex items-center gap-2.5">
-            <span className="font-black text-2xl tracking-tight text-slate-900 dark:text-white">
-              globio<span className="text-emerald-500 font-extrabold">.ai</span>
+    <div className="min-h-screen lg:h-screen flex flex-col justify-between bg-[#0b1f7a] bg-gradient-to-br from-[#081754] via-[#0e2a9c] to-[#0a1e74] text-white overflow-x-hidden selection:bg-amber-300 selection:text-slate-950 relative">
+      {/* Subtle dot matrix background pattern matching globio.ai */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Top Navigation */}
+      <header className="relative z-10 border-b border-white/10 backdrop-blur-md bg-[#081754]/50">
+        <div className="container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between max-w-6xl">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 group">
+            <span className="font-extrabold text-2xl tracking-tight text-white flex items-center">
+              Globio
             </span>
-            <Badge
-              variant="outline"
-              className="hidden sm:inline-flex text-[11px] font-semibold text-emerald-700 bg-emerald-50/70 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800"
-            >
-              A1 Diagnostic
-            </Badge>
           </Link>
-          <div className="flex items-center gap-4">
+
+          {/* Center Navigation Links (Matching globio.ai screenshot) */}
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-blue-100">
             <a
               href="https://www.globio.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs sm:text-sm font-semibold text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors hidden sm:inline"
+              className="hover:text-amber-400 transition-colors flex items-center gap-1"
             >
-              German Courses ↗
+              Learn German <span className="text-[10px] opacity-70">▾</span>
+            </a>
+            <a
+              href="https://www.globio.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-amber-400 transition-colors flex items-center gap-1"
+            >
+              Programs <span className="text-[10px] opacity-70">▾</span>
+            </a>
+            <a
+              href="https://www.globio.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-amber-400 transition-colors flex items-center gap-1"
+            >
+              Mock Tests <span className="text-[10px] opacity-70">▾</span>
+            </a>
+          </nav>
+
+          {/* Right Action Buttons */}
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.globio.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs sm:text-sm font-semibold text-white/90 hover:text-white px-3.5 py-1.5 rounded-full border border-white/20 hover:border-white/40 transition-all hidden sm:inline-block"
+            >
+              Log in
             </a>
             <Link href="/quiz">
               <Button
                 size="sm"
-                className="font-bold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg px-4 shadow-sm shadow-emerald-600/20"
+                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold rounded-full px-5 py-2 text-xs sm:text-sm shadow-md shadow-amber-500/20 hover:shadow-amber-500/30 transition-all"
               >
-                Start Free Check
+                Start Check
               </Button>
             </Link>
           </div>
         </div>
       </header>
 
-      {/* Main Page Body */}
-      <main className="flex-1 container mx-auto px-4 max-w-5xl pb-16">
-        <Hero />
-        <FeatureCards />
-
-        {/* Exam Risk & Fee Breakdown Callout */}
-        <section className="my-10 p-6 sm:p-10 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-1 space-y-3">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-50 text-rose-700 border border-rose-200 dark:bg-rose-950/50 dark:text-rose-300 dark:border-rose-800">
-                ⚠️ The Real Cost of Booking Too Early
-              </div>
-              <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white">
-                Don&apos;t Lose ₹10,000+ & 60 Days on an Exam Retake
-              </h3>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-                Official Goethe-Zertifikat A1 slots fill up months in advance across India. If you score below 60%, you forfeit the exam fee and must wait for the next open registration window, putting your visa or Ausbildung timeline on hold.
-              </p>
-              <div className="pt-2 flex flex-wrap gap-4 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                <span className="flex items-center gap-1.5">
-                  <span className="text-emerald-600">✓</span> Know your exact score today
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="text-emerald-600">✓</span> Find weak grammar/vocab patterns
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="text-emerald-600">✓</span> Book only when 100% confident
-                </span>
-              </div>
+      {/* Main Single-Viewport Hero Section */}
+      <main className="relative z-10 flex-1 container mx-auto px-4 sm:px-6 max-w-6xl flex items-center py-6 sm:py-8 lg:py-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
+          {/* Left Hero Column */}
+          <div className="lg:col-span-7 space-y-5 text-left">
+            {/* Pill Tag with yellow bullet */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs text-blue-100 font-medium">
+              <span className="text-amber-400 text-xs">●</span>
+              <span>Goethe & ÖSD A1 Diagnostic — all under one roof</span>
             </div>
 
-            <div className="w-full md:w-auto shrink-0 flex flex-col items-center">
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1]">
+              Your Gateway <br />
+              to <span className="text-amber-400">Germany</span>
+            </h1>
+
+            {/* Subtitle */}
+            <div className="text-lg sm:text-xl font-bold tracking-tight">
+              <span className="text-amber-400">A1 Exam Readiness</span>{" "}
+              <span className="text-blue-100 font-normal">— starts here.</span>
+            </div>
+
+            {/* Concise Value Proposition */}
+            <p className="text-sm sm:text-base text-blue-100/90 max-w-xl leading-relaxed">
+              Don&apos;t risk losing ₹10,000+ (€120) and delaying your visa. Take this quick 3-minute diagnostic check across Vocabulary, Grammar, and Reading to know if you&apos;re ready before booking your official exam.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3.5 pt-2 items-stretch sm:items-center">
               <Link href="/quiz">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto px-8 h-13 font-bold bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl shadow-md shadow-emerald-600/20"
+                  className="w-full sm:w-auto h-12 px-7 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold rounded-full text-sm sm:text-base shadow-lg shadow-amber-500/25 hover:shadow-amber-500/35 hover:scale-[1.01] active:scale-[0.99] transition-all"
                 >
-                  Take 3-Min Check Free →
+                  Start Free Readiness Check →
                 </Button>
               </Link>
-              <span className="text-[11px] text-slate-400 mt-2 font-medium">
-                No credit card · Instant evaluation
+              <a
+                href="https://www.globio.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="w-full sm:w-auto h-12 px-6 rounded-full border-white/20 bg-white/5 hover:bg-white/10 text-white text-sm font-semibold backdrop-blur-xs"
+                >
+                  Explore Globio.ai ↗
+                </Button>
+              </a>
+            </div>
+
+            {/* Reassurance pills */}
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-1 text-xs text-blue-200/80 font-medium">
+              <span className="flex items-center gap-1.5">
+                <span className="text-amber-400 font-bold">✓</span> 15 Exam Questions
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="text-amber-400 font-bold">✓</span> 3 Core Skills Evaluated
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="text-amber-400 font-bold">✓</span> 100% Free · Instant Score
               </span>
             </div>
           </div>
-        </section>
 
-        {/* Globio Advantage Section */}
-        <section className="my-14 text-center max-w-4xl mx-auto">
-          <div className="mb-8">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-              The Pathway to Germany
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white mt-1">
-              Why Indian Learners Learn German with Globio
-            </h3>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-2 max-w-xl mx-auto">
-              Globio connects structured A1–B2 German training with direct career pathways and relocation assistance to Germany.
-            </p>
+          {/* Right Column: Sleek Card echoing Globio's registration card */}
+          <div className="lg:col-span-5 w-full max-w-md mx-auto lg:max-w-none">
+            <div className="rounded-2xl bg-white text-slate-900 p-6 sm:p-7 shadow-2xl border border-white/20 space-y-5">
+              <div className="space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-blue-800 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
+                    A1 Diagnostic Check
+                  </span>
+                  <span className="text-xs font-semibold text-slate-500">
+                    ⏱ ~3 Mins
+                  </span>
+                </div>
+                <h3 className="text-xl font-black text-slate-900 pt-1 tracking-tight">
+                  What You&apos;ll Discover
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Directly mapped to Goethe-Zertifikat & ÖSD A1 standards.
+                </p>
+              </div>
+
+              {/* 3 Skill Breakdown rows */}
+              <div className="space-y-2.5 text-xs">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-base">📖</span>
+                    <div>
+                      <div className="font-bold text-slate-900">Vocabulary (Wortschatz)</div>
+                      <div className="text-[11px] text-slate-500">Food, time, family, noun genders (der/die/das)</div>
+                    </div>
+                  </div>
+                  <span className="font-bold text-blue-900 bg-blue-100/70 px-2 py-0.5 rounded text-[11px]">
+                    5 Qs
+                  </span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-base">⚙️</span>
+                    <div>
+                      <div className="font-bold text-slate-900">Grammar (Grammatik)</div>
+                      <div className="text-[11px] text-slate-500">V2 word order, Akkusativ, modal verbs, Perfekt</div>
+                    </div>
+                  </div>
+                  <span className="font-bold text-purple-900 bg-purple-100/70 px-2 py-0.5 rounded text-[11px]">
+                    5 Qs
+                  </span>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-base">🔍</span>
+                    <div>
+                      <div className="font-bold text-slate-900">Reading (Leseverstehen)</div>
+                      <div className="text-[11px] text-slate-500">Authentic notices, emails, signs, timetables</div>
+                    </div>
+                  </div>
+                  <span className="font-bold text-emerald-900 bg-emerald-100/70 px-2 py-0.5 rounded text-[11px]">
+                    5 Qs
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Button inside card */}
+              <div className="pt-1">
+                <Link href="/quiz">
+                  <Button
+                    size="lg"
+                    className="w-full h-12 bg-[#0b1f7a] hover:bg-[#0e2a9c] text-white font-bold rounded-xl text-sm shadow-md transition-all"
+                  >
+                    Take Readiness Check Now →
+                  </Button>
+                </Link>
+                <p className="text-[11px] text-center text-slate-400 mt-2 font-medium">
+                  Instant skill breakdown & top 2–3 practice tips
+                </p>
+              </div>
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 space-y-2">
-              <span className="text-2xl">🤖</span>
-              <h4 className="font-bold text-sm text-slate-900 dark:text-white">AI Speaking & Writing</h4>
-              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                24/7 AI tutor evaluates pronunciation, grammar, and exam formats with instant feedback.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 space-y-2">
-              <span className="text-2xl">📚</span>
-              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Physical Books Delivered</h4>
-              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Comprehensive study guides and workbooks for A1 to B2 shipped right to your home.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 space-y-2">
-              <span className="text-2xl">🎯</span>
-              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Goethe & telc Prep</h4>
-              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Dedicated mock test series designed to maximize your pass rates on the first attempt.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 space-y-2">
-              <span className="text-2xl">🇩🇪</span>
-              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Germany Relocation</h4>
-              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                Ausbildung placement, Chancenkarte support, and nursing/engineering career pathways.
-              </p>
-            </div>
-          </div>
-        </section>
+        </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-950 py-10 text-xs text-slate-500">
-        <div className="container mx-auto px-4 max-w-5xl flex flex-col sm:flex-row justify-between items-center gap-6">
-          <div className="space-y-1 text-center sm:text-left">
-            <div className="font-black text-lg text-slate-900 dark:text-white">
-              globio<span className="text-emerald-500">.ai</span>
-            </div>
-            <p>© 2026 Globio AI · German Exam Readiness Checker</p>
-            <p className="text-[11px] text-slate-400">
-              Diagnostic tool designed for self-assessment. Not officially affiliated with Goethe-Institut e.V. or ÖSD.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-6 font-semibold">
-            <Link href="/quiz" className="hover:text-emerald-600 transition-colors">
-              Take Readiness Quiz
+      {/* Compact Bottom Footer */}
+      <footer className="relative z-10 border-t border-white/10 py-3.5 text-xs text-blue-200/70">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
+          <p>© 2026 Globio · A1 German Exam Readiness Checker</p>
+          <div className="flex items-center gap-4 text-blue-200/90 font-medium">
+            <Link href="/quiz" className="hover:text-amber-400 transition-colors">
+              Take Quiz
             </Link>
             <a
               href="https://www.globio.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-emerald-600 transition-colors"
+              className="hover:text-amber-400 transition-colors"
             >
               Globio.ai Website ↗
             </a>
