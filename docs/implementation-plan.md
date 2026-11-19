@@ -46,7 +46,7 @@ flowchart LR
 | 1.5 | Create root layout with metadata, fonts, and global styles | `src/app/layout.tsx` | [x] |
 | 1.6 | Add placeholder pages for all three routes and API handler | `src/app/page.tsx`, `src/app/quiz/page.tsx`, `src/app/results/page.tsx`, `src/app/api/evaluate/route.ts` | [x] |
 | 1.7 | Initialize Git repo, create `.gitignore`, make clean initial commit | `.gitignore`, `README.md` | [x] |
-| 1.8 | Connect repo to GitHub & Vercel | Vercel / GitHub | [ ] |
+| 1.8 | Connect repo to GitHub & Vercel | Vercel / GitHub | [x] (GitHub: Anaagh05/globio-a1-readiness-check) |
 
 ### Exit Criteria
 

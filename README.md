@@ -38,8 +38,8 @@ Upon completion, it provides:
 
 ```bash
 # Clone the repository
-git clone <repo-url>
-cd globio
+git clone https://github.com/Anaagh05/globio-a1-readiness-check.git
+cd globio-a1-readiness-check
 
 # Install dependencies
 npm install
