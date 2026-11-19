@@ -7,37 +7,49 @@ interface SkillRadialChartProps {
 const skillColorConfig = {
   vocabulary: {
     stroke: "stroke-blue-500",
-    track: "stroke-blue-100 dark:stroke-blue-900/50",
+    track: "stroke-blue-100 dark:stroke-blue-950",
     text: "text-blue-600 dark:text-blue-400",
-    bg: "bg-blue-50 dark:bg-blue-950/40",
-    border: "border-blue-200 dark:border-blue-800",
+    bg: "bg-white dark:bg-slate-900",
+    border: "border-slate-200/80 dark:border-slate-800 hover:border-blue-300",
     label: "Vocabulary",
     german: "Wortschatz",
+    icon: "📖",
   },
   grammar: {
     stroke: "stroke-purple-500",
-    track: "stroke-purple-100 dark:stroke-purple-900/50",
+    track: "stroke-purple-100 dark:stroke-purple-950",
     text: "text-purple-600 dark:text-purple-400",
-    bg: "bg-purple-50 dark:bg-purple-950/40",
-    border: "border-purple-200 dark:border-purple-800",
+    bg: "bg-white dark:bg-slate-900",
+    border: "border-slate-200/80 dark:border-slate-800 hover:border-purple-300",
     label: "Grammar",
     german: "Grammatik",
+    icon: "⚙️",
   },
   reading: {
     stroke: "stroke-emerald-500",
-    track: "stroke-emerald-100 dark:stroke-emerald-900/50",
+    track: "stroke-emerald-100 dark:stroke-emerald-950",
     text: "text-emerald-600 dark:text-emerald-400",
-    bg: "bg-emerald-50 dark:bg-emerald-950/40",
-    border: "border-emerald-200 dark:border-emerald-800",
+    bg: "bg-white dark:bg-slate-900",
+    border: "border-slate-200/80 dark:border-slate-800 hover:border-emerald-300",
     label: "Reading",
     german: "Leseverstehen",
+    icon: "🔍",
   },
 };
 
 const verdictBadge = {
-  strong: { label: "Strong", class: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300" },
-  needs_work: { label: "Needs Work", class: "bg-amber-100 text-amber-700 dark:bg-amber-900/60 dark:text-amber-300" },
-  weak: { label: "Weak", class: "bg-rose-100 text-rose-700 dark:bg-rose-900/60 dark:text-rose-300" },
+  strong: {
+    label: "Strong",
+    class: "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800",
+  },
+  needs_work: {
+    label: "Needs Work",
+    class: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800",
+  },
+  weak: {
+    label: "Weak Area",
+    class: "bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-950/60 dark:text-rose-300 dark:border-rose-800",
+  },
 };
 
 function RadialChart({
@@ -96,7 +108,7 @@ export function SkillRadialChart({ skills }: SkillRadialChartProps) {
         return (
           <div
             key={skill.skill}
-            className={`flex flex-col items-center gap-3 rounded-2xl border p-5 sm:p-6 ${config.bg} ${config.border}`}
+            className={`flex flex-col items-center gap-3.5 rounded-2xl border p-5 sm:p-6 shadow-sm transition-all duration-200 ${config.bg} ${config.border}`}
           >
             {/* Radial + score overlay */}
             <div className="relative flex items-center justify-center">
@@ -109,30 +121,29 @@ export function SkillRadialChart({ skills }: SkillRadialChartProps) {
                 <span className={`text-2xl sm:text-3xl font-black ${config.text}`}>
                   {skill.score}%
                 </span>
+                <span className="text-[10px] text-slate-400 font-mono">
+                  {skill.correct}/{skill.total}
+                </span>
               </div>
             </div>
 
             {/* Skill label */}
-            <div className="text-center space-y-1">
-              <div className={`text-sm font-bold ${config.text}`}>
-                {config.label}
+            <div className="text-center space-y-0.5">
+              <div className="text-sm font-bold text-slate-900 dark:text-white flex items-center justify-center gap-1.5">
+                <span>{config.icon}</span>
+                <span>{config.label}</span>
               </div>
-              <div className="text-[11px] text-muted-foreground">
+              <div className="text-[11px] text-slate-500 font-medium">
                 {config.german}
               </div>
             </div>
 
-            {/* Verdict + ratio */}
-            <div className="flex items-center gap-2">
-              <span
-                className={`text-xs font-semibold px-2 py-0.5 rounded-full ${badge.class}`}
-              >
-                {badge.label}
-              </span>
-              <span className="text-xs text-muted-foreground font-mono">
-                {skill.correct}/{skill.total}
-              </span>
-            </div>
+            {/* Verdict pill */}
+            <span
+              className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${badge.class}`}
+            >
+              {badge.label}
+            </span>
           </div>
         );
       })}

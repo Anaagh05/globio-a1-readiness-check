@@ -117,7 +117,8 @@ export function QuizRunner() {
   if (!currentQuestion) {
     return (
       <div className="flex flex-col items-center justify-center p-12 text-center">
-        <p className="text-muted-foreground">Loading readiness check...</p>
+        <div className="animate-spin rounded-full h-8 w-8 border-3 border-emerald-600 border-t-transparent mb-3" />
+        <p className="text-slate-500 font-medium text-sm">Preparing readiness check...</p>
       </div>
     );
   }
@@ -149,7 +150,7 @@ export function QuizRunner() {
           variant="outline"
           onClick={prev}
           disabled={isFirst || isSubmitting}
-          className="px-5 min-w-[90px]"
+          className="px-5 h-11 rounded-xl border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 min-w-[90px]"
         >
           ← Back
         </Button>
@@ -159,7 +160,7 @@ export function QuizRunner() {
             <Button
               onClick={next}
               disabled={!hasAnsweredCurrent || isSubmitting}
-              className="px-6 min-w-[100px] font-semibold"
+              className="px-6 h-11 rounded-xl min-w-[110px] font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 disabled:opacity-50"
             >
               Next Question →
             </Button>
@@ -167,23 +168,23 @@ export function QuizRunner() {
             <Button
               onClick={handleSubmit}
               disabled={!allAnswered || isSubmitting}
-              className="px-6 min-w-[130px] font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md"
+              className="px-7 h-11 rounded-xl min-w-[140px] font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-600/20"
             >
-              {isSubmitting ? "Submitting..." : "Submit Check ✓"}
+              {isSubmitting ? "Calculating..." : "Submit Check ✓"}
             </Button>
           )}
         </div>
       </div>
 
       {/* Helper reminder & keyboard shortcuts */}
-      <div className="flex items-center justify-between text-xs text-muted-foreground px-1">
+      <div className="flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 px-1">
         <span>
           {!hasAnsweredCurrent
-            ? "Select an option above to proceed."
+            ? "Choose an answer to proceed."
             : "Press Enter ↵ to continue"}
         </span>
-        <span className="hidden sm:inline font-mono opacity-70">
-          Tip: Use keys 1–4 or A–D
+        <span className="hidden sm:inline font-mono opacity-80">
+          Shortcut: 1–4 or A–D
         </span>
       </div>
     </div>
