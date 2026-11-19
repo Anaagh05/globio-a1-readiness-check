@@ -37,3 +37,4 @@ export const DIFFICULTY_WEIGHTS = {
   medium: 2,
   hard: 3,
 } as const;
+

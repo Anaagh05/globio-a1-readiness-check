@@ -8,3 +8,4 @@ import { allQuestions } from "./index";
 export const clientQuestions: ClientQuestion[] = allQuestions.map(
   ({ correctIndex, explanation, ...safeFields }) => safeFields
 );
+

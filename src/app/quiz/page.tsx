@@ -1,48 +1,39 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { QuizRunner } from "@/components/quiz/QuizRunner";
 
 export default function QuizPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="border-b bg-card">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between max-w-5xl">
-          <Link href="/" className="font-extrabold text-2xl tracking-tight text-primary">
-            globio<span className="text-emerald-500">.ai</span>
+      {/* Top Header */}
+      <header className="border-b bg-card/80 backdrop-blur sticky top-0 z-50">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between max-w-4xl">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="font-black text-2xl tracking-tight text-primary">
+              globio<span className="text-emerald-500">.ai</span>
+            </span>
+            <Badge variant="outline" className="hidden sm:inline-flex text-xs">
+              Goethe & ÖSD A1 Diagnostic
+            </Badge>
           </Link>
-          <Badge variant="outline">Quiz Section</Badge>
+          <Link
+            href="/"
+            className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            ✕ Exit Quiz
+          </Link>
         </div>
       </header>
 
-      <main className="flex-1 container mx-auto px-4 py-12 max-w-2xl flex flex-col justify-center">
-        <Card>
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <Badge variant="secondary">Phase 1 Placeholder</Badge>
-              <span className="text-sm text-muted-foreground">Question 1 of 15</span>
-            </div>
-            <CardTitle className="text-xl mt-2">A1 Readiness Quiz</CardTitle>
-            <CardDescription>
-              The quiz UI components and state engine will be connected in Phase 3.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Questions covering Vocabulary, Grammar, and Reading are being prepared in Phase 2.
-            </p>
-            <div className="flex justify-between pt-4">
-              <Link href="/">
-                <Button variant="outline">Back to Home</Button>
-              </Link>
-              <Link href="/results">
-                <Button>Preview Results Page →</Button>
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
+      {/* Main Runner Area */}
+      <main className="flex-1 container mx-auto px-4 py-8 sm:py-12 flex flex-col justify-center">
+        <QuizRunner />
       </main>
+
+      {/* Minimal Footer */}
+      <footer className="border-t py-4 text-center text-xs text-muted-foreground">
+        <p>15 Questions · 3 Core Skills · Globio A1 Diagnostic</p>
+      </footer>
     </div>
   );
 }
-

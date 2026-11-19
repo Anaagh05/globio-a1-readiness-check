@@ -107,15 +107,15 @@ flowchart LR
 
 | # | Task | File(s) | Done |
 |---|------|---------|------|
-| 3.1 | Build the **Landing Page** — hero section, CTA button, brief feature explanation | `src/app/page.tsx`, `src/components/landing/Hero.tsx`, `src/components/landing/FeatureCards.tsx` | [ ] |
-| 3.2 | Implement `useQuiz` hook — `useReducer` state machine managing `currentIndex`, `answers`, `status` | `src/hooks/useQuiz.ts` | [ ] |
-| 3.3 | Build `QuizProvider` — React context wrapping `useQuiz`, provides state + actions to children | `src/components/quiz/QuizProvider.tsx` | [ ] |
-| 3.4 | Build `QuestionCard` — renders prompt, 4 options via `RadioGroup`, highlights selected | `src/components/quiz/QuestionCard.tsx` | [ ] |
-| 3.5 | Build `ProgressBar` — shows question progress with skill section markers (Vocab → Grammar → Reading) | `src/components/quiz/ProgressBar.tsx` | [ ] |
-| 3.6 | Build `SkillBadge` — displays which skill section the learner is in | `src/components/quiz/SkillBadge.tsx` | [ ] |
-| 3.7 | Assemble the **Quiz Page** — combines all quiz components, handles navigation (Next / Back / Submit) | `src/app/quiz/page.tsx` | [ ] |
-| 3.8 | Add page transitions / animations (optional — subtle fade between questions) | Quiz components | [ ] |
-| 3.9 | Mobile responsiveness pass — test quiz flow on small screens | All quiz components | [ ] |
+| 3.1 | Build the **Landing Page** — hero section, CTA button, brief feature explanation | `src/app/page.tsx`, `src/components/landing/Hero.tsx`, `src/components/landing/FeatureCards.tsx` | [x] |
+| 3.2 | Implement `useQuiz` hook — `useReducer` state machine managing `currentIndex`, `answers`, `status` | `src/hooks/useQuiz.ts` | [x] |
+| 3.3 | Build `QuizProvider` — React context wrapping `useQuiz`, provides state + actions to children | `src/components/quiz/QuizProvider.tsx` | [x] |
+| 3.4 | Build `QuestionCard` — renders prompt, 4 options via `RadioGroup`, highlights selected | `src/components/quiz/QuestionCard.tsx` | [x] |
+| 3.5 | Build `ProgressBar` — shows question progress with skill section markers (Vocab → Grammar → Reading) | `src/components/quiz/ProgressBar.tsx` | [x] |
+| 3.6 | Build `SkillBadge` — displays which skill section the learner is in | `src/components/quiz/SkillBadge.tsx` | [x] |
+| 3.7 | Assemble the **Quiz Page** — combines all quiz components, handles navigation (Next / Back / Submit) | `src/app/quiz/page.tsx` | [x] |
+| 3.8 | Add page transitions / animations (optional — subtle fade between questions) | Quiz components | [x] |
+| 3.9 | Mobile responsiveness pass — test quiz flow on small screens | All quiz components | [x] |
 
 ### UI State Machine
 
@@ -139,12 +139,12 @@ stateDiagram-v2
 
 ### Exit Criteria
 
-- [ ] Landing page renders with working CTA → navigates to `/quiz`
-- [ ] Quiz displays questions one at a time with progress bar
-- [ ] User can select an answer, navigate forward/back, and see skill transitions
-- [ ] Submit button is enabled only when all 15 questions are answered
-- [ ] Quiz state is preserved during navigation (answers aren't lost on Back)
-- [ ] Works on mobile (320px+) and desktop
+- [x] Landing page renders with working CTA → navigates to `/quiz`
+- [x] Quiz displays questions one at a time with progress bar
+- [x] User can select an answer, navigate forward/back, and see skill transitions
+- [x] Submit button is enabled only when all 15 questions are answered
+- [x] Quiz state is preserved during navigation (answers aren't lost on Back)
+- [x] Works on mobile (320px+) and desktop
 
 ---
 

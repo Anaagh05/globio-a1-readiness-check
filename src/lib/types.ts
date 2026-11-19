@@ -72,3 +72,4 @@ export interface EvaluateResponse {
   recommendations: Recommendation[];
   questionResults: QuestionResult[];
 }
+
