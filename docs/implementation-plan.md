@@ -70,14 +70,14 @@ flowchart LR
 
 | # | Task | File(s) | Done |
 |---|------|---------|------|
-| 2.1 | Define core TypeScript types: `Skill`, `Difficulty`, `Question`, `QuizState`, `EvaluateRequest`, `EvaluateResponse` | `src/lib/types.ts` | [ ] |
-| 2.2 | Write 5 vocabulary questions (2 easy, 2 medium, 1 hard) | `src/data/questions/vocabulary.ts` | [ ] |
-| 2.3 | Write 5 grammar questions (2 easy, 2 medium, 1 hard) | `src/data/questions/grammar.ts` | [ ] |
-| 2.4 | Write 5 reading questions with short passages (1 easy, 2 medium, 2 hard) | `src/data/questions/reading.ts` | [ ] |
-| 2.5 | Create a combined question index that exports all 15 questions in order | `src/data/questions/index.ts` | [ ] |
-| 2.6 | Create a client-safe question export that strips `correctIndex` and `explanation` | `src/data/questions/client.ts` | [ ] |
-| 2.7 | Define readiness thresholds config (overall + per-skill) | `src/data/thresholds.ts` | [ ] |
-| 2.8 | Define recommendation rules (per skill × weak / needs_work) | `src/data/recommendations.ts` | [ ] |
+| 2.1 | Define core TypeScript types: `Skill`, `Difficulty`, `Question`, `QuizState`, `EvaluateRequest`, `EvaluateResponse` | `src/lib/types.ts` | [x] |
+| 2.2 | Write 5 vocabulary questions (2 easy, 2 medium, 1 hard) | `src/data/questions/vocabulary.ts` | [x] |
+| 2.3 | Write 5 grammar questions (2 easy, 2 medium, 1 hard) | `src/data/questions/grammar.ts` | [x] |
+| 2.4 | Write 5 reading questions with short passages (1 easy, 2 medium, 2 hard) | `src/data/questions/reading.ts` | [x] |
+| 2.5 | Create a combined question index that exports all 15 questions in order | `src/data/questions/index.ts` | [x] |
+| 2.6 | Create a client-safe question export that strips `correctIndex` and `explanation` | `src/data/questions/client.ts` | [x] |
+| 2.7 | Define readiness thresholds config (overall + per-skill) | `src/data/thresholds.ts` | [x] |
+| 2.8 | Define recommendation rules (per skill × weak / needs_work) | `src/data/recommendations.ts` | [x] |
 
 ### Question Quality Guidelines
 
@@ -91,9 +91,9 @@ flowchart LR
 
 ### Exit Criteria
 
-- [ ] 15 questions pass type-checking (`Skill`, `Difficulty`, weighted correctly)
-- [ ] Client-safe export contains no `correctIndex` or `explanation` fields
-- [ ] Thresholds and recommendation rules are defined and importable
+- [x] 15 questions pass type-checking (`Skill`, `Difficulty`, weighted correctly)
+- [x] Client-safe export contains no `correctIndex` or `explanation` fields
+- [x] Thresholds and recommendation rules are defined and importable
 
 ---
 
