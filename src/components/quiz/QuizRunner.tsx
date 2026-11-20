@@ -25,15 +25,28 @@ export function QuizRunner() {
     next,
     prev,
     submit,
+    reset,
     selectAnswer,
   } = useQuiz(clientQuestions);
 
-  // Auto-start quiz on mount if not started
+  // Auto-start quiz on mount if not started, or reset if retake requested / submitted
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has("retake") || state.status === "submitted") {
+        reset();
+        // Clean URL if retake param was present
+        if (urlParams.has("retake")) {
+          window.history.replaceState({}, "", "/quiz");
+        }
+        return;
+      }
+    }
+
     if (state.status === "not_started") {
       start();
     }
-  }, [state.status, start]);
+  }, [state.status, start, reset]);
 
   // Edge case 1.2.1: Beforeunload warning if in progress and answers exist
   useEffect(() => {
@@ -116,15 +129,15 @@ export function QuizRunner() {
 
   if (!currentQuestion) {
     return (
-      <div className="flex flex-col items-center justify-center p-12 text-center">
+      <div className="flex flex-col items-center justify-center p-8 text-center">
         <div className="animate-spin rounded-full h-8 w-8 border-3 border-[#0b1f7a] border-t-transparent mb-3" />
-        <p className="text-slate-500 font-medium text-sm">Preparing readiness check...</p>
+        <p className="text-slate-500 font-medium text-xs">Preparing readiness check...</p>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
+    <div className="w-full max-w-2xl mx-auto space-y-3 sm:space-y-4">
       {/* Progress section */}
       <ProgressBar
         currentIndex={state.currentIndex}
@@ -135,7 +148,7 @@ export function QuizRunner() {
       {/* Current Question Card with smooth fade transition */}
       <div
         key={currentQuestion.id}
-        className="transition-all duration-200 animate-in fade-in-50 slide-in-from-bottom-2"
+        className="transition-all duration-150 animate-in fade-in-50"
       >
         <QuestionCard
           question={currentQuestion}
@@ -145,12 +158,12 @@ export function QuizRunner() {
       </div>
 
       {/* Navigation Controls */}
-      <div className="flex items-center justify-between pt-2">
+      <div className="flex items-center justify-between pt-1">
         <Button
           variant="outline"
           onClick={prev}
           disabled={isFirst || isSubmitting}
-          className="px-5 h-11 rounded-xl border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 min-w-[90px]"
+          className="px-4 h-9 sm:h-10 rounded-xl border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 text-xs sm:text-sm min-w-[80px]"
         >
           ← Back
         </Button>
@@ -160,7 +173,7 @@ export function QuizRunner() {
             <Button
               onClick={next}
               disabled={!hasAnsweredCurrent || isSubmitting}
-              className="px-6 h-11 rounded-xl min-w-[110px] font-bold bg-[#0b1f7a] hover:bg-[#0e2a9c] text-white shadow-sm shadow-blue-900/20 disabled:opacity-50"
+              className="px-5 h-9 sm:h-10 rounded-xl min-w-[100px] font-bold bg-[#0b1f7a] hover:bg-[#0e2a9c] text-white text-xs sm:text-sm shadow-sm shadow-blue-900/20 disabled:opacity-50"
             >
               Next Question →
             </Button>
@@ -168,7 +181,7 @@ export function QuizRunner() {
             <Button
               onClick={handleSubmit}
               disabled={!allAnswered || isSubmitting}
-              className="px-7 h-11 rounded-xl min-w-[140px] font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-md shadow-amber-500/25"
+              className="px-6 h-9 sm:h-10 rounded-xl min-w-[130px] font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs sm:text-sm shadow-md shadow-amber-500/25"
             >
               {isSubmitting ? "Calculating..." : "Submit Check ✓"}
             </Button>
@@ -177,7 +190,7 @@ export function QuizRunner() {
       </div>
 
       {/* Helper reminder & keyboard shortcuts */}
-      <div className="flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 px-1">
+      <div className="flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 px-1">
         <span>
           {!hasAnsweredCurrent
             ? "Choose an answer to proceed."

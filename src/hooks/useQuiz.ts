@@ -47,7 +47,12 @@ function quizReducer(state: QuizState, action: QuizAction): QuizState {
       };
 
     case "RESET":
-      return initialState;
+      return {
+        currentIndex: 0,
+        answers: {},
+        startedAt: Date.now(),
+        status: "in_progress",
+      };
 
     default:
       return state;
@@ -104,4 +109,3 @@ export function useQuiz(questions: ClientQuestion[]) {
     selectAnswer,
   };
 }
-

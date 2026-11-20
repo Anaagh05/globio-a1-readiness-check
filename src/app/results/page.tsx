@@ -82,14 +82,15 @@ export default function ResultsPage() {
     } catch {
       // ignore
     }
-    router.push("/quiz");
+    // Hard navigate with retake flag to ensure fresh quiz state and clean memory
+    window.location.href = "/quiz?retake=1";
   };
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       {/* Header */}
       <header className="border-b border-white/10 bg-[#0b1f7a] text-white sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between max-w-4xl">
+        <div className="container mx-auto px-4 h-14 flex items-center justify-between max-w-4xl">
           <Link href="/" className="flex items-center gap-2.5">
             <span className="font-extrabold text-2xl tracking-tight text-white">
               Globio
@@ -120,7 +121,7 @@ export default function ResultsPage() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 container mx-auto px-4 py-8 sm:py-12 max-w-3xl">
+      <main className="flex-1 container mx-auto px-4 py-6 sm:py-10 max-w-3xl">
         {/* Loading State */}
         {pageState.status === "loading" && (
           <div className="flex flex-col items-center justify-center py-24 gap-4">
